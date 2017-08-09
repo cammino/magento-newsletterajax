@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Cammino_Newsletterajax>
+            <version>0.0.1</version>
+        </Cammino_Newsletterajax>
+    </modules>
+    <global>
+        <helpers>
+            <newsletterajax>
+                <class>Cammino_Newsletterajax_Helper</class>
+            </newsletterajax>
+        </helpers>
+        <blocks>
+            <newsletterajax>
+                <class>Cammino_Newsletterajax_Block</class>
+            </newsletterajax>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <newsletterajax>
+                <use>standard</use>
+                <args>
+                    <module>Cammino_Newsletterajax</module>
+                    <frontName>newsletterajax</frontName>
+                </args>
+            </newsletterajax>
+        </routers>
+    </frontend>
+</config>
