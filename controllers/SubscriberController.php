@@ -24,12 +24,13 @@ class Cammino_Newsletterajax_SubscriberController extends Mage_Newsletter_Subscr
                     ->loadByEmail($email)
                     ->getId();
 
+                $status = Mage::getModel('newsletter/subscriber')->subscribe($email);
+
                 if ($ownerId !== null && $ownerId != $customerSession->getId()) {
                     $message = $this->__('This email address is already assigned to another user.');
                     $response['status'] = 'WARNING';
                     $response['message'] = $message;
                 }else if ($status == Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE) {
-                    $status = Mage::getModel('newsletter/subscriber')->subscribe($email);
                     $message = $this->__('Confirmation request has been sent.');
                     $response['status'] = 'SUCCESS';
                     $response['message'] = $message;
