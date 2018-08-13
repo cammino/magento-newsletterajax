@@ -25,6 +25,8 @@ class Cammino_Newsletterajax_SubscriberController extends Mage_Newsletter_Subscr
                     ->loadByEmail($email)
                     ->getId();
 
+                $status = Mage::getModel('newsletter/subscriber')->subscribe($email);
+
                 if ($ownerId !== null && $ownerId != $customerSession->getId()) {
                     $message = $this->__('This email address is already assigned to another user.');
                     $response['status'] = 'WARNING';
